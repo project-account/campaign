@@ -3,13 +3,12 @@ package com.campaign.test.controller;
 import com.campaign.test.dao.TestDao;
 import com.campaign.test.model.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/api")
 public class TestController {
 
@@ -17,9 +16,15 @@ public class TestController {
     private TestDao testDao;
 
     @GetMapping("/getAll")
+    @ResponseBody
     public List<Test> getAllTest(){
 
         List<Test> testList = testDao.findAll();
         return testList;
+    }
+
+    @RequestMapping(value="/mvc-test",method = RequestMethod.GET)
+    public String getMvc(){
+        return "test";
     }
 }
