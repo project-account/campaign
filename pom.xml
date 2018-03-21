@@ -20,10 +20,6 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<project.bootstrap>4.0.0-2</project.bootstrap>
-		<project.jquery>3.3.1-1</project.jquery>
 	</properties>
 
 	<dependencies>
@@ -55,16 +51,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>bootstrap</artifactId>
-			<version>${project.bootstrap}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>jquery</artifactId>
-			<version>${project.jquery}</version>
 		</dependency>
 
 		<!-- hot swapping, disable cache for template, enable live reload -->

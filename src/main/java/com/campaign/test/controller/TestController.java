@@ -31,7 +31,7 @@ public class TestController {
     }
 
     @RequestMapping(value="/test-mvc",method = RequestMethod.GET)
-    public String getTestMvc(Model model){
-        return "hello";
+    public String getTestMvc(){
+        return "home";
     }
 }
