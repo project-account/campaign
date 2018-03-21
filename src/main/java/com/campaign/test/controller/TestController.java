@@ -34,4 +34,9 @@ public class TestController {
     public String getTestMvc(){
         return "home";
     }
+
+    @RequestMapping(value="/signin",method = RequestMethod.GET)
+    public String loginPage(){
+        return "signin";
+    }
 }
