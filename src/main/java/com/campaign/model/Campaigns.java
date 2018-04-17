@@ -10,10 +10,10 @@ import javax.persistence.Table;
 import java.sql.Clob;
 import java.util.Date;
 
-@Entity
-@Table(name = "CAMPAIGNS")
-@Data
-@Builder
+//@Entity
+//@Table(name = "CAMPAIGNS")
+//@Data
+//@Builder
 public class Campaigns extends BaseModel{
 
     @Column(name = "START_DATE")
@@ -36,5 +36,6 @@ public class Campaigns extends BaseModel{
 
     @ManyToOne
     private Sellers seller;
+
 
 }

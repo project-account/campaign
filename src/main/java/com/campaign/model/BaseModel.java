@@ -5,8 +5,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Data
-@Builder
+//@Data
+//@Builder
 public class BaseModel {
 
     @Id

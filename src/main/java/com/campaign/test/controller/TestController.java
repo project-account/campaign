@@ -35,8 +35,5 @@ public class TestController {
         return "home";
     }
 
-    @RequestMapping(value="/signin",method = RequestMethod.GET)
-    public String loginPage(){
-        return "signin";
-    }
+
 }
