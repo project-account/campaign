@@ -1,6 +1,5 @@
 package com.campaign.test.validator;
 
-import com.campaign.test.annotation.PasswordMatch;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.validation.ConstraintValidator;

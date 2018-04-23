@@ -20,19 +20,19 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 </head>
-<body class="text-center">
+<body class="h-100">
 <div class="container">
-    <form class="form-horizontal" role="form" action="#" method="POST" th:action="@{/uye-ol}" th:object="${userDTO}">
+    <form class="form-horizontal text-left mt-5" role="form" action="#" method="POST" th:action="@{/uye-ol}" th:object="${userDTO}">
         <div class="row">
             <div class="col-md-3"></div>
-            <div class="col-md-6">
+            <div class="col-md-6 text-center">
                 <h2>Üye Ol</h2>
                 <hr>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
-                <label for="name">Name</label>
+                <label for="name">İsim</label>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
@@ -52,14 +52,13 @@
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
-                <label for="email">E-Mail Address</label>
+                <label for="email">Email</label>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                        <input type="text" data-th-field="*{email}" data-th-value="*{email}" name="email" class="form-control" id="email" oninvalid="this.setCustomValidity('Lütfen email adresinizi girin')"
-                               oninput="setCustomValidity('')" placeholder="you@example.com" required autofocus>
+                        <input type="text" data-th-field="*{email}" data-th-value="*{email}" name="email" class="form-control" id="email" oninvalid="this.setCustomValidity('Lütfen email adresinizi girin')" oninput="setCustomValidity('')" placeholder="email adresiniz" required autofocus>
                     </div>
                 </div>
             </div>
@@ -72,26 +71,26 @@
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
-                <label for="password">Password</label>
+                <label for="password">Şifre</label>
             </div>
             <div class="col-md-6">
                 <div class="form-group has-danger">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
                         <input type="password" data-th-field="*{password}" data-th-value="*{password}"  name="password" class="form-control" id="password"
-                               oninvalid="this.setCustomValidity('Lütfen şifrenizi girin')" oninput="setCustomValidity('')" placeholder="Şifreniz" required>
+                               oninvalid="this.setCustomValidity('Lütfen şifrenizi girin')" oninput="setCustomValidity('')" placeholder="Şifre" required>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-control-feedback">
-                        <span class="text-danger align-middle" data-th-if="${#fields.hasErrors('password')}" data-th-errors="*{password}" />
+                    <span class="text-danger align-middle" data-th-if="${#fields.hasErrors('password')}" data-th-errors="*{password}" />
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
-                <label for="password">Confirm Password</label>
+                <label for="password">Şifre Tekrar</label>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
@@ -100,14 +99,14 @@
                             <i class="fa fa-repeat"></i>
                         </div>
                         <input type="password" th:field="*{passwordConfirm}" name="password-confirmation" class="form-control"
-                               oninvalid="this.setCustomValidity('Lütfen şifrenizi doğrulayın')" oninput="setCustomValidity('')" id="password-confirm" placeholder="Şifre" required>
+                               oninvalid="this.setCustomValidity('Lütfen şifrenizi doğrulayın')" oninput="setCustomValidity('')" id="password-confirm" placeholder="Şifre Tekrar" required>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3"></div>
-            <div class="col-md-6">
+            <div class="col-md-6 text-right">
                 <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Üye Ol</button>
             </div>
         </div>

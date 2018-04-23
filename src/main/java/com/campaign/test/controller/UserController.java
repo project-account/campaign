@@ -1,6 +1,7 @@
 package com.campaign.test.controller;
 
-import com.campaign.test.command.UserDTO;
+import com.campaign.test.dto.UserDTO;
+import com.campaign.test.dto.UserLoginDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,12 +17,17 @@ import javax.validation.Valid;
 public class UserController {
 
     @RequestMapping(value="/giris-yap", method = RequestMethod.GET)
-    public String getSignInForm(){
+    public String getSignInForm(UserLoginDTO userLoginDTO){
         return "membership/signin";
     }
 
     @RequestMapping(value="/giris-yap", method = RequestMethod.POST)
-    public String signIn(){
+    public String signIn(@Valid UserLoginDTO userLoginDTO, BindingResult bindingResult, Model model){
+
+        if(bindingResult.hasErrors()){
+            return "membership/signin";
+        }
+
         return "membership/signin";
     }
 

@@ -1,6 +1,6 @@
-package com.campaign.test.command;
+package com.campaign.test.dto;
 
-import com.campaign.test.annotation.PasswordMatch;
+import com.campaign.test.validator.PasswordMatch;
 import lombok.Data;
 import lombok.Getter;
 

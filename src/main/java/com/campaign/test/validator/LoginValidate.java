@@ -1,6 +1,4 @@
-package com.campaign.test.annotation;
-
-import com.campaign.test.validator.PasswordMatchValidator;
+package com.campaign.test.validator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -11,15 +9,11 @@ import java.lang.annotation.*;
  */
 @Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = PasswordMatchValidator.class)
+@Constraint(validatedBy = LoginValidator.class)
 @Documented
-public @interface PasswordMatch {
+public @interface LoginValidate {
 
-    String message() default "Şifreler eşleşmiyor.";
+    String message() default "Giriş Başarısız!";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
-
-    String password();
-    String passwordConfirm();
-
 }
