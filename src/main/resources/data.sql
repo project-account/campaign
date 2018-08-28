@@ -5,9 +5,9 @@ insert into TEST
 values(2,'emre');
 
 insert into SELLER
-  (id, version, deleted, name)
+  (id, version, deleted, name, email_address)
 values
-  (1, 0, 0, 'first seller');
+  (1, 0, 0, 'first seller', 'first_email@email.com');
 
 insert into CATEGORY
   (id, version, deleted, name)

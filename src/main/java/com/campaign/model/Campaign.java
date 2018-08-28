@@ -20,23 +20,23 @@ public class Campaign extends BaseModel{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "START_DATE")
+    @Column
     private Date startDate;
 
-    @Column(name = "end_date")
+    @Column
     private Date endDate;
 
-    @Column(name = "TITLE")
+    @Column
     private String title;
 
-    @Column(name = "HTML")
+    @Column
     @Lob
     private String html;
 
-    @Column(name = "create_date")
-    private Date createDate;
+    @Column
+    private Date createdDate;
 
-    @Column(name  = "modified_date")
+    @Column
     private Date modifiedDate;
 
     @ManyToOne

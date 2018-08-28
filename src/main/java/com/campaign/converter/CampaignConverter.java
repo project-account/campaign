@@ -36,12 +36,13 @@ public class CampaignConverter {
             return null;
         }
         return CampaignDTO.builder().id(campaign.getId())
-                .createdDate(campaign.getCreateDate())
+                .createdDate(campaign.getCreatedDate())
                 .endDate(campaign.getEndDate())
                 .html(campaign.getHtml())
                 .startDate(campaign.getStartDate())
                 .modifiedDate(campaign.getModifiedDate())
                 .sellerId(campaign.getSeller().getId())
+                .categoryId(campaign.getCategory().getId())
                 .title(campaign.getTitle())
                 .build();
     }
@@ -53,11 +54,11 @@ public class CampaignConverter {
         Optional<Seller> sellerResult = sellerDao.findById(campaignDTO.getSellerId());
         Optional<Category> cateogoryResult = categoryDao.findById(campaignDTO.getCategoryId());
 
-        return Campaign.builder().createDate(campaignDTO.getCreatedDate())
+        return Campaign.builder().createdDate(campaignDTO.getCreatedDate())
                 .startDate(campaignDTO.getStartDate())
                 .endDate(campaignDTO.getEndDate())
                 .html(campaignDTO.getHtml())
-                .createDate(new Date())
+                .createdDate(new Date())
                 .title(campaignDTO.getTitle())
                 .seller(sellerResult.isPresent() ? sellerResult.get() : null)
                 .category(cateogoryResult.isPresent() ? cateogoryResult.get() : null)
