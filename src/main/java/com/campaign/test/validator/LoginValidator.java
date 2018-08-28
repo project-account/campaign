@@ -1,6 +1,6 @@
 package com.campaign.test.validator;
 
-import com.campaign.model.Sellers;
+import com.campaign.model.Seller;
 import com.campaign.test.dto.UserLoginDTO;
 
 import javax.validation.ConstraintValidator;
@@ -24,8 +24,8 @@ public class LoginValidator implements ConstraintValidator<LoginValidate, Object
     }
 
     // callService
-    private Sellers retreiveSeller(UserLoginDTO userLoginDTO){
-        Sellers seller = null;
+    private Seller retreiveSeller(UserLoginDTO userLoginDTO){
+        Seller seller = null;
         return seller;
     }
 }

@@ -1,25 +1,22 @@
 package com.campaign.model;
 
-import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Version;
 
-//@Data
-//@Builder
+@Data
+@MappedSuperclass
 public class BaseModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @Version
-    private Long luc;
+    private Long version;
 
     @Column
-    private boolean deleted;
+    private Boolean deleted;
 
-    public BaseModel(){
+    public BaseModel() {
     }
 
 }

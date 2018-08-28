@@ -1,20 +1,24 @@
 package com.campaign.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import java.sql.Clob;
+import javax.persistence.*;
 import java.util.Date;
 
-//@Entity
-//@Table(name = "CAMPAIGNS")
-//@Data
-//@Builder
-public class Campaigns extends BaseModel{
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "CAMPAIGN")
+public class Campaign extends BaseModel{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "START_DATE")
     private Date startDate;
@@ -26,7 +30,8 @@ public class Campaigns extends BaseModel{
     private String title;
 
     @Column(name = "HTML")
-    private Clob html;
+    @Lob
+    private String html;
 
     @Column(name = "create_date")
     private Date createDate;
@@ -35,7 +40,9 @@ public class Campaigns extends BaseModel{
     private Date modifiedDate;
 
     @ManyToOne
-    private Sellers seller;
+    private Seller seller;
 
+    @ManyToOne
+    private Category category;
 
 }
