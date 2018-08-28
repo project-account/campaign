@@ -52,7 +52,10 @@ public class CampaignConverter {
             return null;
         }
         Optional<Seller> sellerResult = sellerDao.findById(campaignDTO.getSellerId());
-        Optional<Category> cateogoryResult = categoryDao.findById(campaignDTO.getCategoryId());
+        Optional<Category> categoryResult = categoryDao.findById(campaignDTO.getCategoryId());
+        if(!categoryResult.isPresent() || !sellerResult.isPresent()){
+            return null;
+        }
 
         return Campaign.builder().createdDate(campaignDTO.getCreatedDate())
                 .startDate(campaignDTO.getStartDate())
@@ -60,8 +63,27 @@ public class CampaignConverter {
                 .html(campaignDTO.getHtml())
                 .createdDate(new Date())
                 .title(campaignDTO.getTitle())
-                .seller(sellerResult.isPresent() ? sellerResult.get() : null)
-                .category(cateogoryResult.isPresent() ? cateogoryResult.get() : null)
+                .seller(sellerResult.get())
+                .category(categoryResult.get())
+                .build();
+    }
+
+    public Campaign convert(CampaignDTO campaignDTO, Campaign campaign){
+        if(campaignDTO == null || campaign == null){
+            return null;
+        }
+        Optional<Category> categoryResult = categoryDao.findById(campaignDTO.getCategoryId());
+        if(!categoryResult.isPresent()){
+            return null;
+        }
+
+        return Campaign.builder().createdDate(campaignDTO.getCreatedDate())
+                .startDate(campaignDTO.getStartDate())
+                .endDate(campaignDTO.getEndDate())
+                .html(campaignDTO.getHtml())
+                .modifiedDate(new Date())
+                .title(campaignDTO.getTitle())
+                .category(categoryResult.get())
                 .build();
     }
 }

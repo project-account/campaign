@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "rest/campaign")
@@ -30,6 +31,20 @@ public class CampaignController {
         if(campaign == null){
             return;
         }
+        campaignDao.save(campaign);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT)
+    @ResponseBody
+    public void updateCampaign(@RequestBody CampaignDTO campaignDTO){
+        if(campaignDTO == null || campaignDTO.getId() == null){
+            return;
+        }
+        Optional<Campaign> campaignResult = campaignDao.findById(campaignDTO.getId());
+        if(!campaignResult.isPresent()){
+            return;
+        }
+        Campaign campaign = campaignConverter.convert(campaignDTO, campaignResult.get());
         campaignDao.save(campaign);
     }
 
